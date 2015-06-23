@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>滑动门导航菜单</title>
+<style>
+#menu {
+  font-family:Arial;
+  font-size:14px;
+  margin:0 auto 0 0;
+  background:url(bg.png);
+}
+ 
+#menu ul {
+  display:block;
+  width:500px;
+  padding:0 0 0 8px; 
+  margin:0; 
+  list-style:none; 
+  height:47px; 
+}
+  
+#menu ul li {
+  float:left;/* change orignal position */
+}
+
+/* display from left to right  */
+#menu ul li a{
+  display:block;
+  float:left; 
+  line-height:47px; 
+  color:#ddd;
+  text-decoration:none;
+  padding:0 14px 0 14px;
+}
+
+#menu ul li a:hover{
+  color:#fff; 
+  background: url(hover.png);
+}
+
+/* display form right to left */ 
+#menu ul li a b{
+  display:block;
+  padding:0 0 0 0;
+}
+  
+#menu ul li a:hover b{
+  color:#fff; 
+  background: url(hover.png) no-repeat right top;
+}
+</style>
+</head>
+<body>
+<div id="menu">
+<ul>
+   <li><a href="#"><b> 首页 </b></a></li>
+   <li><a href="#"><b> 北京校区 </b></a></li>
+   <li><a href="#"><b> 上海校区 </b></a></li>
+   <li><a href="#"><b> 网页平面学科 </b></a></li>
+</ul>
+</div>
+</body>
+</html>
