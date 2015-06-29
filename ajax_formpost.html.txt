@@ -1,0 +1,114 @@
+@@ -1,114 +0,0 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	<title>Document</title>
+</head>
+<body>
+	<form id="form" method="post">
+    <div class="fitem">
+      <label> 房间:</label>
+      <input name="RoomName" style="padding: 2px; width: 135px; border: 1px solid #A4BED4;" required />
+    </div>
+    <div class="fitem">
+      <label> 建筑:</label>
+      <input name="RoomName" class="easyui-combobox" style="padding: 2px; width: 141px; " required />
+    </div>
+    <div class="fitem">
+      <label> 部门:</label>
+      <input name="RoomName" class="easyui-combobox" style="padding: 2px; width: 141px; " required />
+    </div>
+    <fieldset>
+      <legend>
+      <label>
+        <input type="checkbox" id="ktkzq" name="ktkzq" value="ktkzq"/>
+        空调控制器</label>
+      </legend>
+      <div class="fitem">
+        <label> 端口:</label>
+        <input name="kt_dk" id="kt_dk" disabled="disabled" class="easyui-combobox" style="padding: 2px; width: 141px; " required />
+      </div>
+      <div class="fitem">
+        <label> 地址:</label>
+        <input name="kt_dz" id="kt_dz" disabled="disabled" class="easyui-combobox" style="padding: 2px; width: 141px; " required />
+      </div>
+      <div class="fitem">
+        <label> 工作方式:</label>
+        <input name="kt_gzfs" id="kt_gzfs" disabled="disabled" class="easyui-combobox" style="padding: 2px; width: 141px; " required />
+      </div>
+      <div class="fitem">
+        <label> 是否启用:</label>
+        <input name="kt_sfqy" id="kt_sfqy" disabled="disabled" class="easyui-combobox" style="padding: 2px; width: 141px; " required />
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>
+      <label>
+        <input type="checkbox" id="dgkzq" name="dgkzq" value="dgkzq"/>
+        灯光控制器</label>
+      </legend>
+      <div class="fitem">
+        <label> 端口:</label>
+        <input name="dg_dk" id="dg_dk" disabled="disabled" class="easyui-combobox" style="padding: 2px; width: 141px; " required />
+      </div>
+      <div class="fitem">
+        <label> 地址:</label>
+        <input name="dg_dz" id="dg_dz" disabled="disabled" class="easyui-combobox" style="padding: 2px; width: 141px; " required />
+      </div>
+      <div class="fitem">
+        <label> 工作方式:</label>
+        <input name="dg_gzfs" id="dg_gzfs" disabled="disabled" class="easyui-combobox" style="padding: 2px; width: 141px; " required />
+      </div>
+      <div class="fitem">
+        <label> 是否启用:</label>
+        <input name="dg_sfqy" id="dg_sfqy" disabled="disabled" class="easyui-combobox" style="padding: 2px; width: 141px; " required />
+      </div>
+    </fieldset>
+    <div class="fitem">
+      <label style=" width:100px;">
+        <input type="checkbox" id="zongbiao" name="zongbiao" value="zongbiao"/>
+        安装了总表:</label>
+    </div>
+    <div class="fitem">
+      <label> 总表电能节点:</label>
+      <input name="zbdnjd" id="zbdnjd" disabled="disabled" class="easyui-combobox" style="padding: 2px; width: 141px; " required />
+    </div>
+  </form>
+  <script type="text/javascript">
+var str_data = $("#form").map(function(){
+	return ($(this).attr("name")+'='+$("this").val());
+}).get().join("&");
+
+$(document).ready(function(){
+	alert(str_data);
+});
+
+/*
+**ajax提交请求
+*
+$.ajax({
+   type: "POST",
+   url: "some.php",
+   data: "name=John&location=Boston",
+   success: function(msg){
+     alert( "Data Saved: " + msg );
+   }
+});
+*
+*/
+$.ajax({
+   var str_data=$("#dlg_form input").map(function(){
+  return ($(this).attr("name")+'='+$(this).val());
+}).get().join("&") ;
+   type: "POST",
+   url: "some.php",
+   data: str_data,
+   success: function(msg){
+     alert( "Data Saved: " + msg );
+   }
+});
+</script>
+</body>
+</html>
