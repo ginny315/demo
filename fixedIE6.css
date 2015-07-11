@@ -1,0 +1,36 @@
+@charset"utf-8"
+.sl-fixed-top{
+	bottom: auto;
+	top:0;
+	_bottom:auto;
+	_top:expression(eval(document.documentElement.scrollTop));
+}
+
+.sl_fixed_bottom{
+	bottom: 0;
+	top:auto;
+	_bottom:auto;
+	_top:expression(eval(document.documentElement.scrollTop+document.documentElemenHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+}
+
+.sl-fixed-left{
+	left: 0;
+	_position:absolute;
+	right: auto;
+	_left:expression(eval(document.documentElement.scrollLeft));
+}
+
+.sl-fixed-right{
+	right: 0;
+	left: auto;
+	_right:0;
+	_left:expression(eval(document.documentElement.scrollLeft+document.documentElement.clientWidth-this.offsetWidth)-(parseInt(this.currentStyle.marginLeft,10)||0)-(parseInt(.currentStyle.marginRight,10)||0));
+}
+
+/* hack for IE6 */
+.sl-fixed-top,
+.sl_fixed_bottom,
+.sl-fixed-left,
+.sl-fixed-right{
+	_position:absolute;
+}
