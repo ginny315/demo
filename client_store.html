@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>client store</title>
+</head>
+<body>
+<script type="text/javascript">
+/*localStorage，使用自带方法，若添加属性，则改变的是副本，不能改变本身*/
+//识别使用的存储机制
+var memory = window.localStorage || (window.UserDataStorage && new UserDataStorage()) || new cookieStorage;
+//在对应机制中查询数据
+var username = memory.getItem("username");
+
+
+localStorage.setItem('x',1);
+localStorage.getItem('x');
+
+for(var i=0 ; i<localStorage.length ; i++){
+	var name = localStorage.key(i);
+	var value = localStorage.getItem(name);
+}
+localStorage.removeItem('x');//删除x项
+localStorage.clear();//全部删除
+
+
+/*cookie无任何加密机制，是不安全的，协议相关（https是安全的）*/
+navigator.cookieEnabled = true //cookies是启用的
+//path ‘\’对于任何这台服务器上的页面均可见 'aa'对于aa/的页面可见
+//domain可以设置子域
+//cookie名值对不允许分号、逗号、空白符，一般都编码解码
+function setcookie(name,value,daysToLive){
+	var cookie = name + "=" + encodeURIComponent(value);
+	if(typeof daysToLive === "number")
+		cookie += ";max-age=" + (daysToLive*60*60*24);
+	document.cookie = cookie;
+}
+
+function getCookie(){
+	var cookie ={};
+	var all = document.cookie;
+	if(all === "")
+		return cookie;
+	var list = all.split(";");
+	for (var i=0 ; i<list.length ; i++){
+		var cookie = list[i];
+		var p = cookie.indexOf("=");
+		var name = cookie.substring(0,p);
+		var value = cookie.substring(p+1);
+		value = decodeURIComponent(value);
+		cookie[name] = value;
+	}
+	return cookie;
+}
+
+
+/*IE userData持久化数据*/
+var memory = document.createElement("div");
+memory.id = "_memory";
+memory.style.display = "none";
+memory.style.behavior = "url('#default#userData')";
+document.body.appendChild(memory);
+
+memory.load("myStoredData");
+var name = memory.getAttribute("username");
+if(!name){
+	name = prompt("what is your name?");
+	memory.setAttribute(" username",name);
+	memory.save("myStoredData");
+}
+var now = (new Date()).getTime();
+var expires = now+100*24*60*60*1000;
+expires = new Date(expires).toUTCString();
+memory.expires = expires;
+</script>
+</body>
+</html>
