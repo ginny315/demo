@@ -1,0 +1,54 @@
+.div_choose ul{
+	list-style: none;
+	position: absolute;
+	top:240px;
+	left: 300px;
+}
+
+.div_choose ul li{
+	float: left;
+	margin-left: 5px;
+	background-color: #fff;
+	opacity: 0.8;
+	color: #000;
+	width: 20px;
+	height: 20px;
+	border-radius: 3px;
+	text-align: center;
+	line-height: 20px;
+	cursor:pointer;
+}
+
+img{
+	width: 80%;
+	/* float: left; */
+	display: inline-block;
+	border: 1px solid #000;
+}
+
+.wrap{
+	position: relative;
+	width: 600px;
+	height: 310px;
+	overflow: hidden;
+}
+
+.div_pic{
+	position: relative;
+	top:0;
+	left:0;
+	width: 600px;
+	height: 310px;
+}
+
+.div_pic ul{
+	width: 400%; 
+	height: 100%;
+	display: inline-block;
+	font-size: 0;
+}
+
+.div_pic ul li{
+	width: 25%;
+	display: inline-block;	
+}
