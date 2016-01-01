@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<header id="header">
+	header side
+</header>
+
+<script type="text/javascript">
+	var scrollTop = 0,
+		scrollLeft = 0,
+		body = document.body,
+		header = document.getElementById('header');
+
+		function onScroll(){
+			scrollTopPosition = body.scrollTop;
+			scrollLeftPosition = body.scrollLeft;
+		}
+
+		function writeScrollPosition(){
+			header.innerHTML = scrollTopPosition + 'px, '+scrollLeftPosition + 'px';
+		}
+
+		document.addEventListener('scroll',onScroll,false);
+
+		window.setInterval(writeScrollPosition,500);
+
+
+</script>
+</body>
+</html>
