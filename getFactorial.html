@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+	function getFactorial(num){
+		var result = 1,
+			index = 1;
+
+			if(!getFactorial.storage){
+				getFactorial.storage = {};
+			}else if(getFactorial.storage[num]){
+				return getFactorial.storage[num];
+			}
+
+			for(; index<=num ; index++){
+				result *= index;
+			}
+
+			getFactorial.storage[num] = result;
+			return result;
+	}
+</script>
+</body>
+</html>
