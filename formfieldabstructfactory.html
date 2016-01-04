@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+var FormFieldFactory = {
+	this.availableTypes = {
+		TEXT:'text',
+		EMAIL:'email',
+		BUTTON:'button'
+	}
+};
+
+FormFieldFactory.prototype = {
+	makeField:function(){
+		throw new Error('This method shouid not be calle directory');
+	}
+};
+
+
+function HTML5FormFieldFactory(){}
+HTML5FormFieldFactory.prototype = new FormFieldFactory();
+
+HTML5FormFieldFactory.prototype.makeField = function(options){
+	var options = options || {},
+		type = options.type || this.availableTypes.TEXT,
+		displayText = options.displayText || '',
+		field;
+
+		switch(type){
+			case this.availableTypes.TEXT:
+				field = new HTML5TextField(displayText);
+				break;
+			case this.availableTypes.EMAIL:
+				field = new HTML5EmailField(displayText);
+				break;
+			case this.availableTypes.BUTTON:
+				field = new ButtonField(displayText);
+				break;
+			default:
+				throw new Error('Invalid field type specified'+type);
+		}
+
+		return field;
+}
+
+
+function HTML4FormFieldFactory(){}
+HTML4FormFieldFactory.prototype = new FormFieldFactory();
+
+HTML4FormFieldFactory.prototype.makeField = function(options){
+	var options = options || {},
+		type = options.type || this.availableTypes.TEXT,
+		displayText = options.displayText || '',
+		field;
+
+		switch(type){
+			case this.availableTypes.TEXT:
+			case this.availableTypes.EMAIL:
+				field = new HTML4TextField(displayText);
+				break;
+			case this.availableTypes.BUTTON:
+				field = new ButtonField(displayText);
+				break;
+			default:
+				throw new Error('Invalid field type specified'+type);
+		}
+
+		return field;
+}
+
+
+function HTML5TextField(displayText){
+	this.displayText = displayText;
+}
+
+HTML5TextField.prototype.getElement = function(){
+	var textField = document.createElement('input');
+	textField.setAttribute('type','text');
+	textField.setAttribute('placeholder',this.displayText);
+	return textField;
+}
+
+
+function HTML4TextField(displayText){
+	this.displayText = displayText;
+}
+
+HTML4TextField.prototype.getElement = function(){
+	var wrapper = document.createElement('div'),
+		textField = document.createElement('input'),
+		textFieldId = 'text-field-' + Math.floor(Math.random()*999),
+		label = document.createElement('label'),
+		labelText = document.createTextNode(this.displayText);
+
+		textField.setAttribute('type','text');
+		textField.setAttribute('id',textFieldId);
+
+		label.setAttribute('for','text');
+		label.appendChild(labelText);
+
+		return wrapper;
+}
+
+function HTML5EmailField(displayText){
+	this.displayText = displayText;
+}
+
+
+HTML5EmailField.prototype.getElement = function(){
+	var emailField = document.createElement('input');
+	emailField.setAttribute('type','email');
+	emailField.setAttribute('placeholder',this.displayText);
+	return emailField;
+}
+
+
+function ButtonField(displayText){
+	this.displayText = displayText;
+} 
+
+ButtonField.prototype.getElement = function(){
+	var buttonField = document.createElement('botton');
+	buttonField.setAttribute('type','submit');
+	buttonField.setAttribute('placeholder',this.displayText);
+	return buttonField;
+}
+
+
+
+
+var supportHtml5FormFields = (function(){
+	var field = document.createElement('input');
+	field.setAttribute('type','email');
+	return field.type === 'email';
+}());
+
+FormFieldFactory = supportHtml5FormFields ? new HTML5FormFieldFactory() : new HTML4FormFieldFactory();
+var mytext = FormFieldFactory.makeField({
+		type:'text',
+		displayText:'aaa'
+	}),
+	myemail = FormFieldFactory.makeField({
+		type:'email',
+		displayText:'11@qq.com'
+	}),
+	mybutton = FormFieldFactory.makeField({
+		type:'button',
+		displayText:'submit'
+	});
+
+window.addEventListener('load',function(){
+	var bodyElement = document.body;
+
+	bodyElement.appendChild(mytext.getElement());
+	bodyElement.appendChild(myemail.getElement());
+	bodyElement.appendChild(mybutton.getElement());
+})
+</script>
+</body>
+</html>
