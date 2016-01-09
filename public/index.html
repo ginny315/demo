@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>currentPositon</title>
+</head>
+<body>
+<script type="text/javascript">
+var mapElem = document.createElement('img');
+
+function successCallback(position){
+	var lat = position.coords.latitude,
+		long = position.coords.longitude;
+	console.log('lat='+lat);
+
+	mapElem.setAttribute('src','http://maps.googleapis.com/maps/api/staticmap?markers='+lat+','+long+'&zoom=15&size=300*300&sensor=false');
+}
+
+function errorCallback(){
+	alert("Sorry - couldn't get your location.");
+}
+
+if(navigator.geolocation){
+	navigator.geolocation.watchPosition(successCallback,errorCallback,{
+		maximumAge:1000
+	});
+
+	mapElem.setAttribute('width',300);
+	mapElem.setAttribute('height',300);
+	document.body.appendChild(mapElem);
+}
+</script>	
+</body>
+</html>

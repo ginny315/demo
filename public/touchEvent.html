@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>touch event</title>
+</head>
+<body>
+<script type="text/javascript">
+var touchCountElem = document.createElement('p');
+
+function handleTouchEvent(e){
+	var allTouches = e.touches,
+		allTouchesLength = allTouches.length;
+
+		if(e.type == 'touchstart'){
+			e.preventDefault();
+		}
+
+		touchCountElem.innerHTML = 'There are currently '+allTouchesLength+' touches on the screen.';
+}
+
+document.body.appendChild(touchCountElem);
+
+window.addEventListener('touchstart',handleTouchEvent,false);
+window.addEventListener('touchend',handleTouchEvent,false);
+</script>	
+</body>
+</html>
