@@ -1,0 +1,113 @@
+html {
+  font-size: 10px;
+}
+body {
+  position: relative;
+}
+.mycanvas {
+  border: 5px solid #eee;
+}
+ul {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-padding-start: 0;
+}
+.palette {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid #979797;
+}
+.palette li {
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+.palette .palette_one li:nth-child(1) {
+  background-color: #8a2be2;
+}
+.palette .palette_one li:nth-child(2) {
+  background-color: #9932cc;
+}
+.palette .palette_one li:nth-child(3) {
+  background-color: #ba55d3;
+}
+.palette .palette_one li:nth-child(4) {
+  background-color: #ee82ee;
+}
+.palette .palette_two li:nth-child(1) {
+  background-color: #8b0000;
+}
+.palette .palette_two li:nth-child(2) {
+  background-color: #ff0000;
+}
+.palette .palette_two li:nth-child(3) {
+  background-color: #f08080;
+}
+.palette .palette_two li:nth-child(4) {
+  background-color: #ffe4e1;
+}
+.palette .palette_three li:nth-child(1) {
+  background-color: #8b4513;
+}
+.palette .palette_three li:nth-child(2) {
+  background-color: #d2691e;
+}
+.palette .palette_three li:nth-child(3) {
+  background-color: #f4a460;
+}
+.palette .palette_three li:nth-child(4) {
+  background-color: #ffdab9;
+}
+.palette .palette_four li:nth-child(1) {
+  background-color: #daa520;
+}
+.palette .palette_four li:nth-child(2) {
+  background-color: #ffd700;
+}
+.palette .palette_four li:nth-child(3) {
+  background-color: #ffff00;
+}
+.palette .palette_four li:nth-child(4) {
+  background-color: #f0e68c;
+}
+.palette .palette_five li:nth-child(1) {
+  background-color: #008000;
+}
+.palette .palette_five li:nth-child(2) {
+  background-color: #3cb371;
+}
+.palette .palette_five li:nth-child(3) {
+  background-color: #9acd32;
+}
+.palette .palette_five li:nth-child(4) {
+  background-color: #90ee90;
+}
+.palette .palette_six li:nth-child(1) {
+  background-color: #191979;
+}
+.palette .palette_six li:nth-child(2) {
+  background-color: #0000ff;
+}
+.palette .palette_six li:nth-child(3) {
+  background-color: #1e90ff;
+}
+.palette .palette_six li:nth-child(4) {
+  background-color: #87cefa;
+}
+.palette .palette_seven li:nth-child(1) {
+  background-color: #000000;
+}
+.palette .palette_seven li:nth-child(2) {
+  background-color: #808080;
+}
+.palette .palette_seven li:nth-child(3) {
+  background-color: #d3d3d3;
+}
+.palette .palette_seven li:nth-child(4) {
+  background-color: #ffffff;
+  border: 1px solid #eee;
+  width: 1.9rem;
+  height: 1.9rem;
+}
