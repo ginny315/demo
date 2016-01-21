@@ -1,4 +1,4 @@
-.border(@b:1px){
+.border(@b:0px){
 	border:@b solid #979797; 
 }
 
@@ -19,16 +19,27 @@ ul{
     -webkit-padding-start: 0;
 }
 
-.palette{
+li{
+	cursor: pointer;
+}
+
+.brush{
 	position: absolute;
 	right: 0;
 	top: 0;
+	border:5px solid #eee;
+	div{
+		padding:1rem 0;
+	}
+}
+.palette{
 	.border();
 	li{
 		width:2rem;
 		height: 2rem;
 		display: inline-block;
 		margin-left: 0.5rem;
+		font-size: 0;
 	}
 	.palette_one{
 		li:nth-child(1){
@@ -137,4 +148,62 @@ ul{
 			height:1.9rem;
 		}
 	}
+}
+
+.brushwidth{
+	.border();
+	li{
+		width:4.5rem;
+		height: 2rem;
+		line-height: 2rem;
+		text-align: center;
+		display: inline-block;
+		margin-left: 0.5rem;
+		background: -moz-linear-gradient(top, #fff 0%, #ccc 100%) no-repeat;
+	    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#ccc) no-repeat);
+	    background: -webkit-linear-gradient(top, c4e1ff 0%,#ccc 100%) no-repeat;
+	    background: -o-linear-gradient(top, #fff 0%,#ccc 100%)no-repeat;
+	    background: -ms-linear-gradient(top, #fff 0%,#ccc 100%)no-repeat;
+	    background: linear-gradient(to bottom, #fff 0%,#ccc 100%)no-repeat;
+	    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#ccc',GradientType=0 );
+	}
+}
+.tool{
+	.border();
+	li{
+		width:4.5rem;
+		height: 2rem;
+		line-height: 2rem;
+		text-align: center;
+		display: inline-block;
+		margin-left: 0.5rem;
+	}
+	li:first-child{
+		background-color: #ffc0cb;
+	}
+	li:last-child{
+		background-color: #f0e68c;
+	}
+}
+
+.tool2{
+	.border();
+	li{
+		width:4.5rem;
+		height: 2rem;
+		line-height: 2rem;
+		text-align: center;
+		display: inline-block;
+		margin-left: 0.5rem;
+	}
+	li:first-child{
+		background-color: #fff;
+		border: 1px solid #eee;
+	}
+}
+
+#finish{
+	width: 10rem;
+	height: 8rem;
+	border:2px solid #000;
 }

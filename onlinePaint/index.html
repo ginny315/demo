@@ -12,59 +12,86 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="blank"/>
-    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="telephone=no"/>	
     <link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/onlinepaint.css">
 	<script type="text/javascript"  src="js/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="js/farbtastic.js"></script>
 	<script type="text/javascript" src="js/onlinepaint.js"></script>
 	<title>online paint</title>
 </head>
 <body>
 <canvas id='mycanvas' class="mycanvas" width='600' height='400'>您的浏览器不支持这个功能</canvas>
+<div id="colorpicker"></div>
+
+
+<img src="" id="finish"/>
+<div class="brush">
 <div class="palette" id="palette">
 	<ul class="palette_one">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
+		<li>#8a2be2</li>
+		<li>#9932cc/li>
+		<li>#ba55d3</li>
+		<li>#ee82ee</li>
 	</ul>
 	<ul class="palette_two">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
+		<li>#8b0000</li>
+		<li>#ff0000</li>
+		<li>#f08080</li>
+		<li>#ffe4e1</li>
 	</ul>
 	<ul class="palette_three">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
+		<li>#8b4513</li>
+		<li>#d2691e</li>
+		<li>#f4a460</li>
+		<li>#ffdab9</li>
 	</ul>
 	<ul class="palette_four">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
+		<li>#daa520</li>
+		<li>#ffd700</li>
+		<li>#ffff00</li>
+		<li>#f0e68c</li>
 	</ul>
 	<ul class="palette_five">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
+		<li>#008000</li>
+		<li>#3cb371</li>
+		<li>#9acd32</li>
+		<li>#90ee90</li>
 	</ul>
 	<ul class="palette_six">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
+		<li>#191979</li>
+		<li>#0000ff</li>
+		<li>#1e90ff</li>
+		<li>#87cefa</li>
 	</ul>
 	<ul class="palette_seven">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
+		<li>#000000</li>
+		<li>#808080</li>
+		<li>#d3d3d3</li>
+		<li>#ffffff</li>
 	</ul>
 </div>
+<div class="brushwidth" id="brushwidth">
+	<ul>
+		<li>特细</li>
+		<li>细</li>
+	</ul>
+	<ul>
+		<li>粗</li>
+		<li>特粗</li>
+	</ul>	
+</div>
+<div class="tool" id="tool">
+	<ul>
+		<li>画笔</li>
+		<li>橡皮</li>
+	</ul>
+</div>
+<div class="tool2" id="tool2">
+	<ul>
+		<li>清空</li>
+		<li>保存</li>
+	</ul>
+</div>
+</div><!-- brush -->
 </body>
 </html>
