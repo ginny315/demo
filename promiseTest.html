@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>promise test</title>
+</head>
+<body>
+<script type="text/javascript">
+	// var promise1 = new Promise(function(resolve,reject){
+	// 		resolve(123);
+	// 	});
+	// 	var promise2 = promise1.then(function(arg0){
+	// 		alert("执行了promise1的resolve回调"+arg0);
+	// 	});
+	// 	promise2.then(function(arg1){
+	// 		/*promise1和promise2是不同的Promise对象实例*/
+	// 		alert("为什么会执行promise2的resolve回调"+arg1);
+	// 	});
+	var obj = {
+		then:function() {
+
+		},
+		name:"ginny",
+		getName:function(){
+			return this.name;
+		}
+	};
+
+	var o = {};
+	var promise = Promise.resolve(obj);
+	promise.then();
+</script>
+</body>
+</html>

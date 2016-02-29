@@ -104,8 +104,10 @@ $(document).ready(function(){
 
 	//if mousedown,recond position now.
 	$mycanvas.on(downEventName,function(e){
-		paintNow = true;
-		recondMove(curTool,brush,e.pageX - this.offsetLeft,e.pageY - this.offsetTop);
+		var mouseX = e.pageX - this.offsetLeft,
+			mouseY = e.pageY - this.offsetTop,
+			paintNow = true;
+		recondMove(curTool,brush,mouseX,mouseY);
 		Draw(context,brush);
 	});
 
@@ -296,8 +298,6 @@ function showlist(data) {
         htmlstr = ' <li id="' + index + '"><a href="javascript:;" title="' + val.ip + '" onclick="sendsay(\'' + index + '\')">' + cname + '</a></li>';
         $('#userlist').append(htmlstr)
     });
-    htmlstr = '<li class="divider"></li><li><a href="javascript:;" onclick="sharego();"><span class="glyphicon glyphicon-share"></span>分享给朋友</a></li>';
-    $('#userlist').append(htmlstr);
     $('#nowinline').html('在线' + count + '人 <span class="caret"></span>');
 }
 
