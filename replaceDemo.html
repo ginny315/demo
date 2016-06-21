@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+html{
+	font-size:12px;
+}
+		.jkwxshare_dialog{
+		position: absolute;
+	    top: 16%;
+	    padding-left: 28.6%;
+	    padding-right: 12%;
+	}
+	.nickNameStyle{
+			font-size: 2rem;
+			color: #f9b483;
+		}
+		.challengeStyle{
+			font-size: 1.8rem !important;
+			color:#e14240 !important;
+		}
+		.jkStyle{
+			font-size: 1.5rem;
+			display: block;
+		    color: #8fd7ef;
+		    text-align: right;
+		}
+	</style>
+</head>
+<body>
+
+<div class="jkwxshare_dialog">
+      <!--<span id="wxNickName">小张名字可能很长</span>
+      <span id="wxChallengeText">向你发起了“连续早起三天的挑战”，来吧宝贝。</span>-->
+			<span class="challengeStyle" id='aaa'></span>
+      <span class="jkStyle">－来自 [健康管家]</span>
+    </div>
+<script src="http://yzued.111.com.cn/FFF/zepto/v0.2/FFF.fc.template.min.js"></script>
+<script type="text/javascript">
+var str = '99<{ginny}>是个美丽的小姑娘，<{ginny}>love singing';
+var re = /<{\w*}>/g;
+var nickName = 'ginny',nameLen = 5;
+var start = 0;
+//nickname样式
+var strNickname = '<span class="nickNameStyle">'+nickName+'</span>';
+var NewStr = str.replace(/<{\w*}>/g,strNickname);
+	$('#aaa').html(NewStr);	  
+</script>
+</body>
+</html>
