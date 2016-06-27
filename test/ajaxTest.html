@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="简单的异步测试套件">
+	<title>ajax test</title>
+	<style type="text/css">
+		#results li.pass{
+			color: green;
+		}
+		#results li.fail{
+			color: red;
+		}
+	</style>
+<script type="text/javascript">
+	(function() {
+		var queue = [],paused = false,results;
+
+		//接受一个包含多个断言的函数，放在等待队列中等待执行
+		this.test = function(name,fn) {
+			queue.push(function() {
+				results = document.getElementById('results');
+				results = assert(true,name).appendChild(
+				 document.createElement('ul'));
+				fn();
+			});
+			runTest();
+		};
+
+		//在test函数内部调用，告诉测试套件暂停执行测试，直到测试组完成
+		this.pause = function() {
+			paused = true;
+		};
+
+		//恢复测试，经过短暂的延迟，开始下一个测试的运行，旨在避免出现长时间运行的代码块
+		this.resume = function() {
+			paused = false;
+			setTimeout(runTest,1);
+		};
+
+		function runTest() {
+			if(!paused && queue.length) {
+				queue.shift();
+				if(!paused) {
+					resume();
+				}
+			}
+		}
+
+		this.assert = function assert(value,desc) {
+			var li = document.createElement('li');
+			li.className = value ? 'pass' : 'fail';
+			li.appendChild(document.createTextNode(desc));
+			results.appendChild(li);
+			alert(results)
+			if(!value){
+				li.parentNode.parentNode.className = 'fail';
+			}
+			return li;
+		}
+ 	})();
+
+ 	window.onload = function() {
+
+ 		test('Async Test #1',function() {
+ 			pause();			
+ 			setTimeout(function() {
+ 				assert(true,'First test completed');
+ 				resume();
+ 			},1000);
+ 		});
+ 		test('Async Test #2',function() {
+ 			pause();
+ 			setTimeout(function() {
+ 				assert(true,'Second test completed');
+ 				resume();
+ 			},1000);
+ 		})
+ 	};
+</script>
+</head>
+<body>
+	<ul id="results"></ul>
+</body>
+</html>
