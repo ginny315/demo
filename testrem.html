@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+          content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<title>js control root element</title>
+	<style type="text/css">
+	*{
+		border:0;
+		margin:0;
+		padding: 0;
+		outline:0;
+	}
+	html{
+		font-size: 10px;
+	}
+	body div:first-child{
+		font-size: 3rem;
+		padding-bottom: 1rem;
+	}
+	.container{
+		margin: 0 auto;
+		width: 25rem;
+		height: 5rem;
+		background-color: #42b983;
+	}
+	.container>span{
+		color:#fff;
+		font-size: 2rem;
+	}
+</style>
+
+<script type="text/javascript">
+ (function(){
+ 	var width = window.screen.width;
+ 	var rate = width/375;
+ 	var newFontSize = 'font-size:' + rate*10 + 'px';
+ 	document.getElementsByTagName('html').style = newFontSize;
+ }());
+
+window.onload = function(){
+	document.getElementById('text').innerHTML = document.getElementsByTagName('html').style;
+}
+</script>
+</head>
+<body>
+	<div>选择不同设备模式后手动刷新浏览器，显示的字体大小为根元素大小</div>
+	<div class="container">
+		<span id="text"></span>
+	</div>
+</body>
+</html>
