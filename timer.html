@@ -1,0 +1,45 @@
+<html>
+    <meta charset="utf-8">
+    <meta discription='点击按钮开始计时，00:12（hh:mm:ss）的方式'>
+<head>
+<script type="text/javascript">
+var h=0,m=0,s=0,t;
+var strH=0,strM=0,strS=0;
+function timedCount(){
+h < 10 ? strH='0'+h : strH=h;
+m < 10 ? strM='0'+m : strM=m;
+s < 10 ? strS='0'+s : strS=s;
+if(h == 0 ){
+    document.getElementById('txt').value = strM+':'+strS;
+}else{
+    document.getElementById('txt').value = strH+':'+strM+':'+strS;
+}
+    
+ s=s+1;
+ if(s == 59 && m != 59){
+     m=m+1;
+     s=0;
+ }else if(s == 59 && m== 59){
+     h=h+1;
+     m=0;
+     s=0;
+ }else {
+
+ }
+ t=setTimeout("timedCount()",1000)
+}
+</script>
+</head>
+
+<body>
+
+<form>
+<input type="button" value="开始计时！" onClick="timedCount()">
+<input type="text" id="txt">
+</form>
+
+<p>请点击上面的按钮。输入框会从 0 开始一直进行计时。</p>
+
+</body>
+
+</html>
