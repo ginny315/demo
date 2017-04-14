@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="author" content="ginny" />
+    <meta name="description" content="" />
+	<meta name="keywords" content="" /> 
+	<meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+	<link rel="stylesheet" type="text/css" href="">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            border:0;
+            outline:0;
+            box-sizing:border-box;
+        }
+     .ball-list{
+         height:40px;
+     }
+     .bucket-list{
+         height:100px;
+     }
+     li{
+         list-style:none;
+         display:inline-block;
+     }
+     .ball-list li{
+         width:30px;
+         height:30px;
+         //background-color:#678877;
+     }
+     .bucket-list li{
+         width:80px;
+         height:80px;
+     }
+     .bucket-list .ball{
+         display:none;
+     }
+     img{
+         width:100%;
+     }
+    </style>
+</head>
+<body>
+    <ul class='ball-list' id='ball-list'>
+    </ul>
+<!--<textarea rows="10" cols="40"></textarea>-->
+    <ul class='bucket-list' id='bucket-list'>
+        <!--<li class='bucket'><img src="./destDefault.png" alt="This is a backet"></li>-->
+    </ul>
+    <script src='./whenReady.js'></script>
+    <script src='./Ball.js'></script>
+    <script src='./Bucket.js'></script>
+<script>
+    whenReady(function(){
+        var config = {
+            ballNum : 5,
+            boxNum : 5
+        }
+        for(var i=0 ; i<config.ballNum; i++){
+            new Ball().init(document.getElementById('ball-list'),i);
+        }
+        for(var i=0 ; i<config.boxNum; i++){
+            new Bucket().init(document.getElementById('bucket-list'),i);
+        }   
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "PWA DEMO FM.202",
+  "short_name": "FM.202",
+  "description": "Simple Progressive Web App for ginny's friends.",
+  "icons": [{
+      "src": "assets/icons/ic-face.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    }, {
+      "src": "assets/icons/ic-face-large.png",
+      "type": "image/png",
+      "sizes": "192x192" 
+    }],
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#fff",
+  "orientation": "portrait"
+}
