@@ -58,9 +58,9 @@ Button.prototype.getElement = function(){
 
 //工厂类使用
 var textField = FormFieldFactory.makeField({
-    type:'text',
-    displayText:'Enter your address'
-}),
+        type:'text',
+        displayText:'Enter your address'
+    }),
     emailField = FormFieldFactory.makeField({
         type:'email',
         displayText:'Enter your email address'

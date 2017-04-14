@@ -1,4 +1,4 @@
-//定义一个基础工厂类，用于创建表单域，其他更名曲饿的表单域创建工厂类将继承与此类
+//定义一个基础工厂类，用于创建表单域，其他更明确的表单域创建工厂类将继承于此类
 function FormFieldFactory(){
     this.availableTypes = {
         TEXT:'text',

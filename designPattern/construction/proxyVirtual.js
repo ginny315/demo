@@ -43,7 +43,7 @@ FormField = (function(FormField){
         }
     };
     return FormFieldProxy();
-}(formField));
+}(FormField));
 
 /**
  * 创建两个对象实例，它们实际调用的都是代理“类”而不是原来的“类”
