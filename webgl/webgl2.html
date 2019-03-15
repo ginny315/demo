@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>使用WebGL绘制一个点</title>
+    </head>
+    <body>
+    <!--canvas标签创建一个宽高均为500像素，背景为蓝色的矩形画布-->
+    <canvas id="webgl" width="500" height="500"></canvas>
+    <script>
+        var drawing = document.getElementById('webgl');
+        if(drawing.getContext){
+            try{
+                var gl = drawing.getContext('webgl');
+            }catch(ex){
+
+            }
+            if(gl){
+                gl.clearColor(0,0,0,1);
+                gl.clear(gl.COLOR_BUFFER_BIT);
+            }else{
+                alert('WebGL context could not be created!');
+            }            
+        }
+    </script>
+</body>
+</html>
